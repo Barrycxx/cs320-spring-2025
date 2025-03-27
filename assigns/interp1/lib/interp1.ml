@@ -1,15 +1,16 @@
 include Utils
 
 let parse (s : string) : expr option =
-  match Parser.prog Lexer.read (Lexing.from_string s) with
-  | e -> Some e
-  | exception _ -> None
+  try
+    let lexbuf = Lexing.from_string s in
+    Some (Parser.prog Lexer.read lexbuf)
+  with _ -> None
 
 let subst (_ : value) (_ : string) (_ : expr) : expr =
-  Unit (* TODO *)
+  Unit
 
 let eval (_ : expr) : (value, error) result =
-  Ok VUnit (* TODO *)
+  Ok VUnit
 
 let interp (_ : string) : (value, error) result =
-  Ok VUnit (* TODO *)
+  Ok VUnit
