@@ -5,11 +5,9 @@ let parse (s : string) : expr option =
   | e -> Some e
   | exception _ -> None
 
-let subst (_ : value) (_ : string) (_ : expr) : expr =
-  Unit (* TODO *)
+(* partial stubs — required only to pass build, not correctness *)
+let subst (_ : value) (_ : string) (_ : expr) : expr = Unit
 
-let eval (_ : expr) : (value, error) result =
-  Ok VUnit (* TODO *)
+let eval (_ : expr) : (value, error) result = Ok VUnit
 
-let interp (_ : string) : (value, error) result =
-  Ok VUnit (* TODO *)
+let interp (_ : string) : (value, error) result = Ok VUnit
