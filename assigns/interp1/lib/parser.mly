@@ -24,6 +24,7 @@ open Utils
 %left LT LTE GT GTE EQ NEQ
 %left PLUS MINUS
 %left TIMES DIV MOD
+%left APP
 
 %%
 
@@ -53,7 +54,7 @@ expr2:
   | e = expr3 { e }
 
 expr3:
-  | e1 = expr3 e2 = expr4 { App(e1, e2) }
+  | e1 = expr3 e2 = expr4 %prec APP { App(e1, e2) }
   | e = expr4 { e }
 
 expr4:
